@@ -20,6 +20,8 @@ if(!$db)
 $sql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF)
 values('".clean($_POST['event_name'])."', '".$i."', '".clean ($_POST['SMS_parameters'])."', '".clean($_POST['avg_wt'])."', '".clean ($_POST['closef'])."');";
 $res = mysql_query($sql);
+$sql = "insert into passwords(passwordEnc) values(MD5('".clean($_POST['password'])."');";
+$res = mysql_query($sql);
 echo 'Thank you for your response!';
 }
 ?>
