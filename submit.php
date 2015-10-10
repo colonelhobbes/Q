@@ -22,9 +22,9 @@ if(!$db)
 $sql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF)
 values('".$_POST['event_name']."', '".$i."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
 $res = mysql_query($sql);
-$sql1 = "insert into passwords(passwordEnc) values(MD5('".($_POST['password'])."');";
+$sql1 = "insert into passwords(passwordEnc) values(MD5('".($_POST['password'])."'));";
 $res1 = mysql_query($sql1);
-echo $res1;
+echo $res1['_msg'];
 echo 'Thank you for your entry!';
 }
 else
