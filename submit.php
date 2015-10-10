@@ -1,5 +1,5 @@
 <?
-
+phpinfo();
 if($_POST){
 
 $host = "nmbzrmx555.database.windows.net";
@@ -15,12 +15,6 @@ catch(Exception $e){
     die(var_dump($e));
 }
 
-
-$database_name = "eventDB";
-$mysql_host = "nmbzrmx555.database.windows.net:1433"; //almost always 'localhost'
-$database_user = "eecs";
-$database_pwd = "IntelNUC777";
-$dbc = mssql_connect($mysql_host, $database_user, $database_pwd);
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
