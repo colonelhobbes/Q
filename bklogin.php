@@ -13,7 +13,5 @@ $db = mysql_select_db($database_name);
 
 $sql = "SELECT id FROM event";
 $res = mysql_query($sql);
-if()
-
-
+echo $res;
 ?>
