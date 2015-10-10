@@ -11,7 +11,7 @@ if(!$dbc)
 }
 $db = mysql_select_db($database_name);
 
-$sql = "SELECT id FROM event";
+$sql = "SELECT * FROM event";
 $res = mysql_query($sql);
 while($row = mysql_fetch_assoc($res)) {
     // code here
