@@ -1,7 +1,9 @@
 <?
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 if($_POST){
 $database_name = "eventDB";
-$mysql_host = "10.142.37.77"; //almost always 'localhost'
+$mysql_host = "localhost"; //almost always 'localhost'
 $database_user = "root";
 $database_pwd = "root";
 $dbc = mysql_connect($mysql_host, $database_user, $database_pwd);
@@ -18,10 +20,15 @@ if(!$db)
     die("Failed to connect to database - check your database name.");
 }
 $sql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF)
-values('".clean($_POST['event_name'])."', '".$i."', '".clean ($_POST['SMS_parameters'])."', '".clean($_POST['avg_wt'])."', '".clean ($_POST['closef'])."');";
+values('".$_POST['event_name']."', '".$i."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
 $res = mysql_query($sql);
-$sql = "insert into passwords(passwordEnc) values(MD5('".clean($_POST['password'])."');";
-$res = mysql_query($sql);
-echo 'Thank you for your response!';
+$sql1 = "insert into passwords(passwordEnc) values(MD5('".($_POST['password'])."');";
+$res1 = mysql_query($sql1);
+echo $res1;
+echo 'Thank you for your entry!';
+}
+else
+{
+	echo 'Not POST';
 }
 ?>
