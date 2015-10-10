@@ -6,11 +6,9 @@
 <body>
 	<form action="submit.php" method="post">
 		<p>Event name: <input type="text" name="event_name"/></p>
-		<p>Remote access? True/False: <input type="text" name="remote_access"/></p>
-		<p>Remote access? True/False: <select name="True">
-		    <option value="True">True</option>
-		    <option value="False">False</option>
-		  </select>
+		<p>Remote access? True/False: </p>
+		<input type="radio" name="Remote Access" value="True">True<br>
+		<input type="radio" name="Remote Access" value="False">False<br>
 		<p>How often to send SMS? (minutes) <input type="text" name="SMS_parameters"/></p>
 		<input type="submit" name="submit"/>
 	</form>
