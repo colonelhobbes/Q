@@ -1,0 +1,17 @@
+<html>
+<head>
+	</head>
+
+
+<body>
+	<form action="submit.php" method="post">
+		<p>Event name: <input type="text" name="event_name"/></p>
+		<p>Remote access? True/False: </p>
+		<input type="radio" name="Remote Access" value="True">True<br>
+		<input type="radio" name="Remote Access" value="False">False<br>
+		<p>How often to send SMS? (minutes) <input type="text" name="SMS_parameters"/></p>
+		<input type="submit" name="submit"/>
+	</form>
+</body>
+
+	</html>
