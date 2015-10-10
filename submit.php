@@ -18,7 +18,7 @@ if(!$db)
     die("Failed to connect to database - check your database name.");
 }
 $sql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF)
-values('".$_POST['event_name']."', '".$i."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
+values('".clean($_POST['event_name'])."', '".$i."', '".clean ($_POST['SMS_parameters'])."', '".clean($_POST['avg_wt'])."', '".clean ($_POST['closef'])."');";
 $res = mysql_query($sql);
 echo 'Thank you for your response!';
 }
