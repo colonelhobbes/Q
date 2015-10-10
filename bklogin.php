@@ -13,5 +13,9 @@ $db = mysql_select_db($database_name);
 
 $sql = "SELECT id FROM event";
 $res = mysql_query($sql);
-echo $res;
+while($row = mysql_fetch_assoc($res)) {
+    // code here
+    // access variables like the following:
+    echo $row['id'].'<br />';
+}
 ?>
