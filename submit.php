@@ -1,6 +1,12 @@
 <?
 
 if($_POST){
+
+try { $conn=new PDO("sqlsrv:server = tcp:nmbzrmx555.database.windows.net,1433; Database = eventDB", "eecs", "IntelNUC777");echo "asdl"; 
+( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION ); 
+} catch ( PDOException ) 
+{ print( "Error connecting to SQL Server." ); 
+die(print_r()); } 
 $database_name = "eventDB";
 $mysql_host = "nmbzrmx555.database.windows.net:1433"; //almost always 'localhost'
 $database_user = "eecs";
