@@ -1,9 +1,9 @@
 <?
-
+phpinfo();
 if($_POST){
 
-try { $conn=new PDO("sqlsrv:server = tcp:nmbzrmx555.database.windows.net,1433; Database = eventDB", "eecs", "IntelNUC777");echo "asdl"; 
-$conn->setAttribute(PDO::ATTR_ERROME, PDO::ERRMODE_EXCEPTION);
+try { $conn=new PDO("sqlsrv:server = tcp:nmbzrmx555.database.windows.net:1433; Database = eventDB", "eecs", "IntelNUC777");echo "asdl"; 
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch ( PDOException $e ) 
 { print( "Error connecting to SQL Server." ); 
 die(print_r($e)); } 
