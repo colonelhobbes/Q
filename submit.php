@@ -1,19 +1,20 @@
 <?
 if($_POST){
 
-$host = "nmbzrmx555.database.windows.net";
-$user = "eecs";
-$pwd = "IntelNCU777";
-$db = "eventDB";
-// Connect to database.
-try {
-    $conn = new PDO( "sqlsrv:Server= $host ; Database = $db ", $user, $pwd);
-    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-}
-catch(Exception $e){
-    die(var_dump($e));
-}
+ $serverName = "tcp:nmbzrmx555.database.windows.net,1433";
+   $userName = 'eecs@nmbzrmx555';
+   $userPassword = 'IntelNUC777';
+   $dbName = "eventDB";
+   $table = "event";
 
+   $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
+
+   sqlsrv_configure('WarningsReturnAsErrors', 0);
+   $conn = sqlsrv_connect( $serverName, $connectionInfo);
+   if($conn === false)
+   {
+     FatalError("Failed to connect...");
+   }
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
