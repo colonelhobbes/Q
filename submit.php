@@ -20,13 +20,6 @@ if(!$db)
 $sql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF)
 values('".$_POST['event_name']."', '".$i."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
 $res = mysql_query($sql);
-echo 'This is your submission : <table><tr>';
-echo '<td>'.$_POST['eventName'].'</td>';
-echo '<td>'.$_POST['clientName'].'</td>';
-echo '<td>'.$_POST['remote_access'].'</td>';
-echo '<td>'.$_POST['SMS_Parameters'].'</td>';
-echo '<td>'.$_POST['avg_wt'].'</td>';
-echo '<td>'.$_POST['closef'].'</td>'; 
-echo '</tr></table>';
+echo 'Thank you for your response!';
 }
 ?>
