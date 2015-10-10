@@ -1,5 +1,4 @@
 <?
-phpinfo();
 if($_POST){
 
 $host = "nmbzrmx555.database.windows.net";
