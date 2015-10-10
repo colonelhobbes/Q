@@ -1,0 +1,12 @@
+<html>
+	<head>
+		<title>Tweets</Title>
+	</head>	
+
+	<body>
+		{% for order in tweets %} 
+			{{order[0]}}: {{order[1]}}
+			<hr>
+		{% endfor %}
+	</body>
+</html>
