@@ -29,8 +29,7 @@ function ReadData()
     {
         echo("Error!");
     }
-        $tsql = "insert into client(clientName, clientAreaCode, eventName, clientPhone, eventID)
-values('".$_POST['name']."', '".$_POST['area_code']."', '".$_POST['eventName']."', '".$_POST['phone_number']."', '".$_POST['eventID']."');";
+        $tsql = "INSERT client(clientName, clientAreaCode, eventName, clientPhone, eventID) OUTPUT('".$_POST['name']."', '".$_POST['area_code']."', '".$_POST['eventName']."', '".$_POST['phone_number']."', '".$_POST['eventID']."');";
     
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
