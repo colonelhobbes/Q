@@ -16,7 +16,7 @@ $sHost = 'tcp:nmbzrmx555.database.windows.net,1433';
 $sDb = 'eventDB';
 $dsn = "sqlsrv:Server=$server;Database=$db";
 try {
-    $oConn = new PDO('mysql:host='.$sHost.';dbname='.$sDb, $sUsername, $sPassword);
+    $oConn = new PDO('mssql:host='.$sHost.';dbname='.$sDb, $sUsername, $sPassword);
     $oConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $oStmt = $oConn->prepare('SELECT * FROM events');
