@@ -13,10 +13,11 @@ function SendData()
             die(FormatErrors(sqlsrv_errors()));
         $tsql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF) values('".$_POST['event_name']."', '".$_POST['remote_access']."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
         $insertReview = sqlsrv_query($conn, $tsql);
+        
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         $sql1 = "insert into passwords(passwordEnc) values(('". ($_POST['password'])."'));";
-         echo 'Thank you for your entry! '
+         
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
@@ -30,13 +31,8 @@ function SendData()
 }
 if($_POST){
     SendData();
-    $tsql1 = "select id from event where eventName=".$_POST['event_name'];
-        $insertReview = sqlsrv_query($conn, $tsql1);
-        echo "ss";
-        if($insertReview == FALSE)
-            die(sqlsrv_errors());
-        $t = sqlsrv_fetch_array($insertReview,SQLSRV_FETCH_ASSOC);
-       
+    
+       echo 'Thank you for your entry! ';
         
 }
 else
