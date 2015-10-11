@@ -1,10 +1,13 @@
 <?
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 if($_POST){
 $database_name = "eventDB";
-$mysql_host = "nmbzrmx555.database.windows.net,1433"; //almost always 'localhost'
+$mysql_host = "nmbzrmx555.database.windows.net"; //almost always 'localhost'
 $database_user = "eecs";
 $database_pwd = "IntelNUC777";
-$dbc = mssql_connect($mysql_host, $database_user, $database_pwd);
+$dbc = OpenConnection();
+echo('hi');
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
@@ -23,4 +26,21 @@ echo 'Thank you for your entry!';
 else
 {
 	echo 'Not POST';
+}
+
+function OpenConnection()
+{
+    try
+    {
+        $serverName = "tcp:nmbzrmx555.database.windows.net,1433";
+        $connectionOptions = array("Database"=>"eventDB",
+            "Uid"=>"eecs@nmbzrmx555", "PWD"=>"IntelNUC777");
+        $conn = sqlsrv_connect($serverName, $connectionOptions);
+        if($conn == false)
+            die(FormatErrors(sqlsrv_errors()));
+    }
+    catch(Exception $e)
+    {
+        echo("Error!");
+    }
 }
