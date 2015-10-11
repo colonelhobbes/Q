@@ -25,7 +25,7 @@ function SendData()
         
         $insertReview = sqlsrv_query($conn, $sql1);
         $row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC);
-        echo $row;
+        var_dump( $row);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         sqlsrv_free_stmt($insertReview);
