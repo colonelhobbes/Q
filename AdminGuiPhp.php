@@ -35,7 +35,7 @@ if(mysql_num_rows($res) != 0){
 	echo('valid');
 
 echo('''<body>
-  <h1> 'mysql_fetch_assoc(???)' </h1>
+  <h1> '''. $row['eventName'].''' </h1>
   <table style="width:100%">
     <thead>
       <th>Queue #</th>
