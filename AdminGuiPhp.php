@@ -11,7 +11,7 @@ function ReadData()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die(FormatErrors(sqlsrv_errors()));
-        $tsql = "select clientName, clientAreaCode, clientPhone, position, passwords.id, passwordEnc from passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='" . $_POST['password'] . "';";
+        $tsql = "select clientName, clientAreaCode, clientPhone, eventName, position, passwords.id, passwordEnc from passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='" . $_POST['password'] . "';";
         $insertReview = sqlsrv_query($conn, $tsql);
        
         if($insertReview == FALSE)
