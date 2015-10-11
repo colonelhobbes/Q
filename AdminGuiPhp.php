@@ -28,7 +28,7 @@ if(!$db){
 	echo ('not valid db');
 }
 $md5 = md5($_POST['password']);
-$sql = "select clientName, clientAreaCode, clientPhone, position, distinct passwords.id, passwordEnc from passwords, event, client where client.eventID = passwords.id and passwords.passwordEnc='".$md5."';";
+$sql = "select clientName, clientAreaCode, clientPhone, position, passwords.id, passwordEnc from passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='".$md5."';";
 $res = mysql_query($sql);
 echo(mysql_error());
 if(mysql_num_rows($res) != 0){
