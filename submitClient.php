@@ -31,17 +31,16 @@ function ReadData()
     }
         $tsql = "insert into client(clientName, clientAreaCode, eventName, clientPhone, eventID)
 values('".$_POST['name']."', '".$_POST['area_code']."', '".$_POST['eventName']."', '".$_POST['phone_number']."', '".$_POST['eventID']."');";
-        $getProducts = sqlsrv_query($conn, $tsql);
-        if ($getProducts == FALSE)
-            die(FormatErrors(sqlsrv_errors()));
-        $productCount = 0;
-        while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
-        {
-            echo($row['CompanyName']);
-            echo("<br/>");
-            $productCount++;
+    
+        $insertReview = sqlsrv_query($conn, $tsql);
+        if($insertReview == FALSE)
+            die(FormatErrors( sqlsrv_errors()));
+        echo "Product Key inserted is :";   
+        while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
+        {   
+            echo($row['ProductID']);
         }
-        sqlsrv_free_stmt($getProducts);
+        sqlsrv_free_stmt($insertReview);
         sqlsrv_close($conn);
     }
     catch(Exception $e)
