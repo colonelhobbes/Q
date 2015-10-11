@@ -1,4 +1,6 @@
 <?
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 function SendData()
 {
     try
@@ -13,18 +15,7 @@ function SendData()
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
-        PrintHTML($row);
-        sqlsrv_free_stmt($insertReview);
-        sqlsrv_close($conn);
-    }
-    catch(Exception $e)
-    {
-        echo("Error!");
-    }
-}
-function PrintHTML($row)
-{
-    echo ('<!DOCTYPE html>
+        echo ('<!DOCTYPE html>
           <html>
           <head>
           <title> Admin GUI </title>
@@ -90,7 +81,16 @@ function PrintHTML($row)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       </html>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+        sqlsrv_free_stmt($insertReview);
+        sqlsrv_close($conn);
+    }
+    catch(Exception $e)
+    {
+        echo("Error!");
+    }
+}
+
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       if (isset($_POST['submit']))
