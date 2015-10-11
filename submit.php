@@ -10,15 +10,25 @@ if($_POST){
 $user = "eecs@nmbzrmx555";
 $pwd = "IntelNUC777";
 $db = "eventDB";
+$sUsername = 'eecs@nmbzrmx555';
+$sPassword = 'IntelNUC777';
+$sHost = 'tcp:nmbzrmx555.database.windows.net,1433';
+$sDb = 'eventDB';
 $dsn = "sqlsrv:Server=$server;Database=$db";
-	echo "asdasdassd";
-  try {
-   $conn = new PDO($dsn, $user, $pwd );
-   $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-} catch (PDOException $e) {
-    die(print_r($e));
+try {
+    $oConn = new PDO('mysql:host='.$sHost.';dbname='.$sDb, $sUsername, $sPassword);
+    $oConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $oStmt = $oConn->prepare('SELECT * FROM events');
+    $oResult = $oStmt->fetchAll();
+
+    foreach ($oResult as $aRow) {
+        print_r($aRow['data']);
+    }
+
+} catch(PDOException $e) {
+    echo 'ERROR: ' . $e->getMessage();
 }
-echo $dbc;
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
