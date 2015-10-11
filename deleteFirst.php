@@ -11,7 +11,7 @@ function Delete()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die((sqlsrv_errors()));
-        $tsql = "(Select Min(position) from client, event, passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='" . $_GET['p'] . "');";
+        $tsql = "delete from client where position = (select MIN(position) from passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='".$_GET['p'].');";
         var_dump($tsql);
         $insertReview = sqlsrv_query($conn, $tsql);
         var_dump($insertReview);
