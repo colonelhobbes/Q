@@ -6,7 +6,7 @@ if($_POST){
    $userPassword = 'IntelNUC777';
    $dbName = "eventDB";
    $table = "event";
-   $server = "tcp:nmbzrmx555.database.windows.net,1433";
+   $server = "tcp:nmbzrmx555.database.windows.net:1433";
 $user = "eecs@nmbzrmx555";
 $pwd = "IntelNUC777";
 $db = "eventDB";
