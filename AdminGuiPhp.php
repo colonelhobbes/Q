@@ -24,7 +24,7 @@ function ReadData()
           </head>
           ');
         
-             echo ('<a href="deleteFirst.php">X(Delete queue top)</a>');
+             echo ('<a href="deleteFirst.php?p='.$_POST['password'].'>X(Delete queue top)</a>');
           $p=0;
                 while ($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
                 {
