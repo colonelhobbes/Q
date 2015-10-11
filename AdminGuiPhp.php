@@ -26,7 +26,7 @@ function ReadData()
         var_dump(sqlsrv_num_rows($insertReview));
         
           $p=0;
-                while ($row = sqlsrv_fetch_assoc($insertReview))
+                while ($row = sqlsrv_fetch_assoc($insertReview, SQLSRV_FETCH_ASSOC ))
                 {
                     if($p==0){
                         echo ('<body style = "font-family: Verdana">
