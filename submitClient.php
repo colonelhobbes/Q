@@ -16,7 +16,19 @@ function ReadData()
 {
     try
     {
-        $conn = OpenConnection();
+        try
+    {
+        $serverName = "tcp:nmbzrmx555.database.windows.net,1433";
+        $connectionOptions = array("Database"=>"eventDB",
+            "Uid"=>"eecs", "PWD"=>"IntelNUC777");
+        $conn = sqlsrv_connect($serverName, $connectionOptions);
+        if($conn == false)
+            die(FormatErrors(sqlsrv_errors()));
+    }
+    catch(Exception $e)
+    {
+        echo("Error!");
+    }
         $tsql = "insert into client(clientName, clientAreaCode, eventName, clientPhone, eventID)
 values('".$_POST['name']."', '".$_POST['area_code']."', '".$_POST['eventName']."', '".$_POST['phone_number']."', '".$_POST['eventID']."');";
         $getProducts = sqlsrv_query($conn, $tsql);
