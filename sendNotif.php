@@ -9,7 +9,7 @@ $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'polize9876@gmail.com';                 // SMTP username
 $mail->Password = 'Password123-456';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+$mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
 
 $mail->From = 'polize9876@gmail.com';
 $mail->FromName = 'SwagNotifier';
