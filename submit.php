@@ -1,6 +1,6 @@
 <?
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
+//ini_set('display_errors', 'On');
+//error_reporting(E_ALL | E_STRICT);
 function SendData()
 {
     try
@@ -16,7 +16,7 @@ function SendData()
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         $sql1 = "insert into passwords(passwordEnc) values(('". ($_POST['password'])."'));";
-        var_dump($sql1);
+        
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
@@ -29,7 +29,6 @@ function SendData()
     }
 }
 if($_POST){
-    echo 'sasd';
     SendData();
     echo 'Thank you for your entry!';
 }
