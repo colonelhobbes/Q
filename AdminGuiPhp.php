@@ -22,7 +22,7 @@ function ReadData()
           <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
           </head>
           ');
-          if (sqlsrv_num_rows($res) != 0)
+          if (sqlsrv_num_rows($insertReview) != 0)
           {
           echo ('<body style = "font-family: Verdana">
                 <h1 style = "text.align: center"> ' . $row['eventName'] . ' </h1>
@@ -34,7 +34,7 @@ function ReadData()
                 <th>Phone # </th>
                 </thead>
                 <tbody>');
-                while ($row = sqlsrv_fetch_assoc($res))
+                while ($row = sqlsrv_fetch_assoc($insertReview))
                 {
                 if ($row['position'] % 2 == 0)
                 {
