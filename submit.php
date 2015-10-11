@@ -11,7 +11,7 @@ function SendData()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die(FormatErrors(sqlsrv_errors()));
-        $tsql  "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF) values('".$_POST['event_name']."', '".$_POST['remote_access']."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
+        $tsql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF) values('".$_POST['event_name']."', '".$_POST['remote_access']."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
         $insertReview = sqlsrv_query($conn, $tsql);
         $sql1 = "insert into passwords(passwordEnc) values(MD5('".($_POST['password'])."'));";
         $insertReview = sqlsrv_query($conn, $sql1);
