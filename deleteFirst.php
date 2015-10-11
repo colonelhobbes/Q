@@ -1,6 +1,6 @@
 <?
-//ini_set('display_errors', 'On');
-//error_reporting(E_ALL | E_STRICT);
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
 function Delete()
 {
     try
@@ -11,7 +11,7 @@ function Delete()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die((sqlsrv_errors()));
-        $tsql = "delete from client order by position LIMIT 1";
+        $tsql = "delete from client order by position LIMIT 1;";
         var_dump($tsql);
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
