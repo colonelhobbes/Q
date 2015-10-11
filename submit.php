@@ -15,7 +15,7 @@ function SendData()
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
-        $sql1 = "insert into passwords(passwordEnc) values(MD5('". ($_POST['password'])."'));";
+        $sql1 = "insert into passwords(passwordEnc) values(('". ($_POST['password'])."'));";
         var_dump($sql1);
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
