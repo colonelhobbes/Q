@@ -25,10 +25,11 @@ function ReadData()
           ');
         var_dump(sqlsrv_num_rows($insertReview));
         
-          if (sqlsrv_num_rows($insertReview) != 0)
-          {
-             
-          echo ('<body style = "font-family: Verdana">
+          $p=0;
+                while ($row = sqlsrv_fetch_assoc($insertReview))
+                {
+                    if($p==0){
+                        echo ('<body style = "font-family: Verdana">
                 <h1 style = "text.align: center"> ' . $row['eventName'] . ' </h1>
                 <table style="width:95%; border-spacing: 0px;">
                 <thead style = "background-color: #E3A20B; height = 35px">
@@ -37,9 +38,7 @@ function ReadData()
                 <th>Area Code </th>
                 <th>Phone # </th>
                 </thead>
-                <tbody>');
-                while ($row = sqlsrv_fetch_assoc($insertReview))
-                {
+                <tbody>');}
                 if ($row['position'] % 2 == 0)
                 {
                 echo ('<tr style = "/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,207cca+11,207cca+11,2989d8+50,7db9e8+100 */
@@ -71,8 +70,8 @@ function ReadData()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo ('<td>' . $row['clientAreaCode'] . '</td>');
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo ('<td>' . $row['clientPhone'] . '</td>');
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo ('</tr>');
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+                                                                                                                                                                                                                                                                                 $p++;                                                                                                                                                                                                               }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 else
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 {
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 echo ("Invalid creds");
