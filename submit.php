@@ -6,15 +6,14 @@ if($_POST){
    $userPassword = 'IntelNUC777';
    $dbName = "eventDB";
    $table = "event";
+	echo "asdasdasd";
+  try {
+   $conn = new PDO($dsn, $user, $pwd );
+   $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+} catch (PDOException $e) {
+    die(print_r($e));
+}
 
-   $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
-
-   sqlsrv_configure('WarningsReturnAsErrors', 0);
-   $conn = sqlsrv_connect( $serverName, $connectionInfo);
-   if($conn === false)
-   {
-     FatalError("Failed to connect...");
-   }
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
