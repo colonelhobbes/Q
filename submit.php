@@ -11,7 +11,7 @@ $user = "eecs@nmbzrmx555";
 $pwd = "IntelNUC777";
 $db = "eventDB";
 $dsn = "sqlsrv:Server=$server;Database=$db";
-	echo "asdasdasd";
+	echo "asdasdassd";
   try {
    $conn = new PDO($dsn, $user, $pwd );
    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
