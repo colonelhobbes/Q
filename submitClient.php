@@ -11,7 +11,7 @@ try
     {
         $serverName = "tcp:nmbzrmx555.database.windows.net,1433";
         $connectionOptions = array("Database"=>"eventDB",
-            "Uid"=>"eecs@nmbzrmx555", "PWD"=>"IntelNUC777");
+            "Uid"=>"eecs", "PWD"=>"IntelNUC777");
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die(FormatErrors(sqlsrv_errors()));
