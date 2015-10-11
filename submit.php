@@ -21,7 +21,7 @@ function SendData()
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
-        $sql11 = "select id from event where eventName=".$_POST['event_name'].";";
+        $sql11 = "select id from event where eventName='".$_POST['event_name']."';";
         
         $insertReview1 = sqlsrv_query($conn, $sql11);
         $row = sqlsrv_fetch_array($insertReview1, SQLSRV_FETCH_ASSOC);
