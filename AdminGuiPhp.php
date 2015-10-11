@@ -23,11 +23,12 @@ function ReadData()
           <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
           </head>
           ');
-        var_dump($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC));
+        
         
           $p=0;
                 while ($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
                 {
+                    echo "asdasd";
                     if($p==0){
                         echo ('<body style = "font-family: Verdana">
                 <h1 style = "text.align: center"> ' . $row['eventName'] . ' </h1>
