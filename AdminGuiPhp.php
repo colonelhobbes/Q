@@ -23,10 +23,10 @@ function ReadData()
           <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
           </head>
           ');
-        var_dump(sqlsrv_fetch_assoc($insertReview, SQLSRV_FETCH_ASSOC ));
+        var_dump($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC));
         
           $p=0;
-                while ($row = sqlsrv_fetch_assoc($insertReview, SQLSRV_FETCH_ASSOC ))
+                while ($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
                 {
                     if($p==0){
                         echo ('<body style = "font-family: Verdana">
