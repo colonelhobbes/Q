@@ -20,8 +20,9 @@ function SendData()
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
-        $tsql = "select id from event where eventName=".$_POST['event_name'];
-        $insertReview = sqlsrv_query($conn, $tsql);
+        $tsql1 = "select id from event where eventName=".$_POST['event_name'];
+        $insertReview = sqlsrv_query($conn, $tsql1);
+        echo "ss";
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         $t = sqlsrv_fetch_array($insertReview,SQLSRV_FETCH_ASSOC);
