@@ -3,8 +3,8 @@ ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 if($_POST){
 ReadData();
-$sql = ""
-$res = mssql_query($sql);
+
+
 
 echo 'Thank you for your entry!';
 }
