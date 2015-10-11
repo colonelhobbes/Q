@@ -34,7 +34,7 @@ values('".$_POST['name']."', '".$_POST['area_code']."', '".$_POST['eventName']."
     
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
-            die(FormatErrors( sqlsrv_errors()));
+            //die(FormatErrors( sqlsrv_errors()));
         echo "Product Key inserted is :";   
         while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
         {   
