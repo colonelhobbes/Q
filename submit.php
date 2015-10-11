@@ -27,6 +27,7 @@ function SendData()
     }
 }
 if($_POST){
+    echo 'sasd';
     SendData();
     echo 'Thank you for your entry!';
 }
