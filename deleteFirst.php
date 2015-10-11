@@ -11,7 +11,7 @@ function Delete()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die((sqlsrv_errors()));
-        $tsql = "delete from client where order by position LIMIT 1";
+        $tsql = "delete from client order by position LIMIT 1";
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
