@@ -2,14 +2,14 @@
 
 <?
 
-echo ('''<!DOCTYPE html>
+echo ('<!DOCTYPE html>
 <html>
 
   <head>
     <title> Admin GUI </title>
     <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
   </head>
-''');
+');
 if(isset($_POST['submit'])){ //check if form was submitted
 $input = $_POST['password']; //get input text
 echo "Success! You enstered: ".$input;
@@ -34,8 +34,8 @@ echo(mysql_error());
 if(mysql_num_rows($res) != 0){
 	echo('valid');
 
-echo('''<body>
-  <h1> '''. $row['eventName'].''' </h1>
+echo('<body>
+  <h1> '. $row['eventName'].' </h1>
   <table style="width:100%">
     <thead>
       <th>Queue #</th>
@@ -43,7 +43,7 @@ echo('''<body>
       <th>Area Code </th>
       <th>Phone # </th>
     </thead>
-    <tbody>''');
+    <tbody>');
 while($row = mysql_fetch_assoc($res)) {
 
     echo ('<tr style = "background-color: DarkSeaGreen">')
@@ -51,7 +51,7 @@ while($row = mysql_fetch_assoc($res)) {
     echo ('<td>'.$row['clientName'].'</td>');
     echo ('<td>'.$row['clientAreaCode'].'</td>');
     echo ('<td>'.$row['clientPhone'].'</td>');
-    echo('<tr>')
+    echo('</tr>');
 }
 }
 else{
@@ -64,7 +64,7 @@ echo('
 
 </body>
 </html>
-')
+');
 ?>
 
 <html>
