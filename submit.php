@@ -20,6 +20,11 @@ function SendData()
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
+        $tsql = "select id from event where eventName=".$_POST['event_name'];
+        $insertReview = sqlsrv_query($conn, $tsql);
+        if($insertReview == FALSE)
+            die(sqlsrv_errors());
+        echo 'Thank you for your entry! Please pass on this ID to your attendees : '.sqlsrv_fetch_array($insertReview,SQLSRV_FETCH_ASSOC) ;
         sqlsrv_free_stmt($insertReview);
         sqlsrv_close($conn);
     }
@@ -30,7 +35,7 @@ function SendData()
 }
 if($_POST){
     SendData();
-    echo 'Thank you for your entry!';
+    
 }
 else
 {
