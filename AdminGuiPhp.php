@@ -23,7 +23,7 @@ function ReadData()
           <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
           </head>
           ');
-        var_dump(sqlsrv_num_rows($insertReview));
+        var_dump(sqlsrv_fetch_assoc($insertReview, SQLSRV_FETCH_ASSOC ));
         
           $p=0;
                 while ($row = sqlsrv_fetch_assoc($insertReview, SQLSRV_FETCH_ASSOC ))
