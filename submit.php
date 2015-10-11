@@ -16,11 +16,12 @@ function SendData()
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         $sql1 = "insert into passwords(passwordEnc) values(('". ($_POST['password'])."'));";
-        
+         echo 'Thank you for your entry! '
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
-        
+        sqlsrv_free_stmt($insertReview);
+        sqlsrv_close($conn);
     }
     catch(Exception $e)
     {
@@ -35,10 +36,8 @@ if($_POST){
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         $t = sqlsrv_fetch_array($insertReview,SQLSRV_FETCH_ASSOC);
-        var_dump($t);
-        echo 'Thank you for your entry! Please pass on this ID to your attendees : '.$t['id'] ;
-        sqlsrv_free_stmt($insertReview);
-        sqlsrv_close($conn);
+       
+        
 }
 else
 {
