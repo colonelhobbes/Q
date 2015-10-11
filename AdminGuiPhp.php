@@ -13,7 +13,7 @@ function ReadData()
             die(FormatErrors(sqlsrv_errors()));
         $tsql = "select clientName, clientAreaCode, clientPhone, position, passwords.id, passwordEnc from passwords inner join client on client.eventID = passwords.id and passwords.passwordEnc='" . $_POST['password'] . "';";
         $insertReview = sqlsrv_query($conn, $tsql);
-        echo "wooo";
+       
         if($insertReview == FALSE)
             die(sqlsrv_errors());
         echo ('<!DOCTYPE html>
@@ -23,8 +23,8 @@ function ReadData()
           <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
           </head>
           ');
-        var_dump($insertReview);
-         echo sqlsrv_num_rows($insertReview);
+        var_dump(sqlsrv_num_rows($insertReview));
+        
           if (sqlsrv_num_rows($insertReview) != 0)
           {
              
