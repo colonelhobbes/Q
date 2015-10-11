@@ -46,7 +46,7 @@ echo('<body>
     <tbody>');
 while($row = mysql_fetch_assoc($res)) {
 
-    echo ('<tr style = "background-color: DarkSeaGreen">')
+    echo ('<tr style = "background-color: DarkSeaGreen">');
     echo ('<td>'.$row['position'].'</td>');
     echo ('<td>'.$row['clientName'].'</td>');
     echo ('<td>'.$row['clientAreaCode'].'</td>');
