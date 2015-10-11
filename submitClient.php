@@ -6,9 +6,22 @@ $database_name = "eventDB";
 $mysql_host = "nmbzrmx555.database.windows.net"; //almost always 'localhost'
 $database_user = "eecs";
 $database_pwd = "IntelNUC777";
-$dbc = OpenConnection();
+//$dbc = OpenConnection();
+try
+    {
+        $serverName = "tcp:nmbzrmx555.database.windows.net,1433";
+        $connectionOptions = array("Database"=>"eventDB",
+            "Uid"=>"eecs@nmbzrmx555", "PWD"=>"IntelNUC777");
+        $conn = sqlsrv_connect($serverName, $connectionOptions);
+        if($conn == false)
+            die(FormatErrors(sqlsrv_errors()));
+    }
+    catch(Exception $e)
+    {
+        echo("Error!");
+    }
 echo('hi');
-if(!$dbc)
+if(!$conn)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
 }
