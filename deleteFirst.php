@@ -11,7 +11,7 @@ function Delete()
         $conn = sqlsrv_connect($serverName, $connectionOptions);
         if($conn == false)
             die((sqlsrv_errors()));
-        $tsql = "delete from client where position=MIN(position) AND id in (Select id from event, client where event.id=client.eventID)";
+        $tsql = "delete from client where position=MIN(position)";
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
