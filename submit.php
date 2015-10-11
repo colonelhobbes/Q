@@ -13,7 +13,10 @@ function SendData()
             die(FormatErrors(sqlsrv_errors()));
         $tsql = "insert into event(eventName, rmtAcc, smsP, avgWaitTime, closeF) values('".$_POST['event_name']."', '".$_POST['remote_access']."', '".$_POST['SMS_parameters']."', '".$_POST['avg_wt']."', '".$_POST['closef']."');";
         $insertReview = sqlsrv_query($conn, $tsql);
-        $sql1 = "insert into passwords(passwordEnc) values(MD5('".($_POST['password'])."'));";
+        if($insertReview == FALSE)
+            die(sqlsrv_errors());
+        $sql1 = "insert into passwords(passwordEnc) values(MD5('". ($_POST['password'])."'));";
+        var_dump($sql1);
         $insertReview = sqlsrv_query($conn, $sql1);
         if($insertReview == FALSE)
             die(sqlsrv_errors());
