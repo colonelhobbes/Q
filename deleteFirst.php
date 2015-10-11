@@ -19,6 +19,8 @@ function Delete()
             die(sqlsrv_errors());
         sqlsrv_free_stmt($insertReview);
         sqlsrv_close($conn);
+        header("Location: AdminGuiPhp.php");
+die();
     }
     catch(Exception $e)
     {
