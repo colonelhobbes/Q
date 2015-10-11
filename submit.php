@@ -18,7 +18,7 @@ $dsn = "sqlsrv:Server=$server;Database=$db";
 } catch (PDOException $e) {
     die(print_r($e));
 }
-
+echo $dbc;
 if(!$dbc)
 {
     die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
