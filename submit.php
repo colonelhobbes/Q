@@ -31,7 +31,7 @@ try {
 }
 if(!$dbc)
 {
-    die("We are currently experiencing very heavy traffic to our site, please be patient and try again shortly.");
+    die("We are curresntly experiencing very heavy traffic to our site, please be patient and try again shortly.");
 }
 $db = mssql_select_db($database_name);
 $i=0;
