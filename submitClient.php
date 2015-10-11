@@ -33,7 +33,7 @@ function ReadData()
     
         $insertReview = sqlsrv_query($conn, $tsql);
         if($insertReview == FALSE)
-            //die(FormatErrors( sqlsrv_errors()));
+            die(sqlsrv_errors());
         echo "Product Key inserted is :";   
         while($row = sqlsrv_fetch_array($insertReview, SQLSRV_FETCH_ASSOC))
         {   
