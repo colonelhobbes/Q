@@ -6,6 +6,11 @@ if($_POST){
    $userPassword = 'IntelNUC777';
    $dbName = "eventDB";
    $table = "event";
+   $server = "tcp:nmbzrmx555.database.windows.net,1433";
+$user = "eecs@nmbzrmx555";
+$pwd = "IntelNUC777";
+$db = "eventDB";
+$dsn = "sqlsrv:Server=$server;Database=$db";
 	echo "asdasdasd";
   try {
    $conn = new PDO($dsn, $user, $pwd );
