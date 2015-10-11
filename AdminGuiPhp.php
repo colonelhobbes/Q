@@ -2,7 +2,7 @@
 echo ('<!DOCTYPE html>
 <html>
   <head>
-    <title> Admin GUI </title>
+    <title> Admin GUIii </title>
     <link rel = "stylesheet" type = "text/css" href = "AdminGuiStyle.css" >
   </head>
 ');
